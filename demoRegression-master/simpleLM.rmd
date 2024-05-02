@@ -1,6 +1,6 @@
 ---
-title: "simpleRegress"
-author: "put your name here"
+title: "WUP_08"
+author: "Jamal Evans"
 date: "Fall 2020"
 output: html_document
 ---
@@ -8,6 +8,16 @@ output: html_document
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
+
+
+##Introduction
+$H_0$ is that there is no difference in neck lengt rate based on sex.
+
+$H_A$ is that there IS a difference in death rate
+
+##Methods
+
+
 
 ## make a simple regression model
 
@@ -26,6 +36,23 @@ plot(LENGTH~NECK,data=bears)
 abline(simp)
 summary.lm(simp)
 ```
+This linear model shows that length~neck is a positive progressing line model.
+
+#Numerical Results
+```{r}
+cor(NECK~LENGTH,data=bears)
+```
+Numerical results error in posit code...?
+#Inferential Results(fisherpvalue)
+```{r}
+model.1 <- lm(NECK~LENGTH,data=bears)
+summary.lm(model.1)
+```
+Our T value results to 0.00572 meaning that we reject the null hypothesis.
+
+##Conclusion
+
+Since the p-value associated with the coefficient for LENGTH is reported as "< 2.2e-16", which is essentially zero, we have very strong evidence to reject the null hypothesis. This indicates that there is a statistically significant relationship between LENGTH and NECK, as the coefficient for LENGTH is significantly different from zero. Based on the provided output, we would reject the null hypothesis.
 
 
 ## Compare all models that predict LENGTH other than NECK. Then order them from worst to best by its value of Adjusted-Rsquared (bigger is better), or by RSE (residual standard error) where smaller is better. 
